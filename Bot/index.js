@@ -3,23 +3,13 @@
 
 require('../handler')
 
-const { Telegram } = require('../handler/api')
+process.removeAllListeners('warning')
 
-global.telegram = global.tg = global.bot = new Telegram()
+const Telegram = require('node-telegram-bot-api')
 
+const bot = new Telegram(process.env.token, {
 
-
-
-
-
-
-
-
-
-bot.on('start', () => {
-
-	process.title = bot.username
-	console.ok(bot.username, 'auth success')
+	polling: { interval: 300, autoStart: true }
 })
 
 
@@ -31,18 +21,10 @@ bot.on('start', () => {
 
 
 
-bot.on('update', update => {
+bot.on('text', message => {
 
-	console.log(update)
+	const { message_id: id, from: { first_name }, chat: { id: chat } } = message
+
+	bot.sendMessage(message.chat.id, `hi ${ first_name }`,
+	{ reply_to_message_id: id })
 })
-
-
-
-
-
-
-
-
-
-
-bot.auth(process.env.token)

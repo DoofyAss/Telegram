@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "Mr. Black",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0"
+  }
 }

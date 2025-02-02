@@ -165,7 +165,7 @@ $(Object.prototype)
 
 
 
-.add(function filter(callback, array = []) {
+/*.add(function filter(callback, array = []) {
 
 	for ([key, item] of Object.entries(this)) {
 
@@ -174,7 +174,7 @@ $(Object.prototype)
 	}
 
 	return array
-})
+})*/
 
 
 
